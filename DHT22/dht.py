@@ -1,8 +1,7 @@
+# Code from https://github.com/jingl3s/DHT11-DHT22-Python-library-Orange-PI
 import time
 import wiringpi
 from wiringpi import GPIO
-# from pyA20.GPIO import GPIO
-# from pyA20.GPIO import port
 
 
 class DHTResult:
@@ -44,20 +43,16 @@ class DHT:
         wiringpi.pinMode(self.__pin, GPIO.OUTPUT)
 
         # send initial high
-        # self.__send_and_sleep(GPIO.HIGH, 0.05)
         wiringpi.digitalWrite(self.__pin, GPIO.HIGH)
         time.sleep(0.05)
         
 
         # pull down to low
-        # self.__send_and_sleep(GPIO.LOW, 0.02)
         wiringpi.digitalWrite(self.__pin, GPIO.LOW)
         time.sleep(0.02)
         
 
         # change to input using pull up
-        #GPIO.setcfg(self.__pin, GPIO.INPUT, GPIO.PULLUP)
-        # GPIO.setcfg(self.__pin, GPIO.INPUT)
         wiringpi.pinMode(self.__pin, GPIO.INPUT)
         wiringpi.pullUpDnControl(self.__pin, pud=GPIO.PUD_UP)
         # GPIO.pullup(self.__pin, GPIO.PULLUP)
