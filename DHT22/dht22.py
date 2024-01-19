@@ -18,6 +18,7 @@ def getTmpAndHum():
     if result.is_valid():
         tmp=result.temperature
         hum=result.humidity
+        print(tmp)
         return f"{tmp},{hum}"
     else:
         return "null"

@@ -46,19 +46,17 @@ while True:
         results=result.split(",")
         tmp=results[0]
         hum=results[1]
-    #print(f"溫度{tmp}度")
-    #print(f"濕度{hum}%")
+    print(f"溫度{tmp}度")
+    print(f"濕度{hum}%")
     n=DFRobot_VEML6075_demo.getUVData()
     g=(round(n,2))
     d=Rain.getraindata()
     
     weatherInfo["key"]="V2VhdGhlclBhcnRuZXJBcGlLZXlPcmFuZ2VQaTVC"
     weatherInfo["purple"]=str(g)
-    weatherInfo["temp"]=str(float(tmp)-5)
-    weatherInfo["wet"]=str(float(hum)+20)
+    weatherInfo["temp"]=str(tmp)
+    weatherInfo["wet"]=str(hum)
     weatherInfo["water"]=d
-
-    print(tmp)
     
     payload = json.dumps(weatherInfo)
     f=open("ha.txt", "r+")

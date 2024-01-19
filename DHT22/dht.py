@@ -49,6 +49,7 @@ class DHT:
 
         # pull down to low
         wiringpi.digitalWrite(self.__pin, GPIO.LOW)
+        #wiringpi.pullUpDnControl(self.__pin, pud=GPIO.PUD_DOWN)
         time.sleep(0.02)
         
 
